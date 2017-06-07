@@ -9,7 +9,7 @@ Typically this authentication approach will be used in mobile apps where registr
 * **Linux**
 * **Mac OS**
 * **Windows**
-* **Apache 2.4 or Nginx 1.9
+* **Apache 2.4** or **Nginx 1.9**
 ### Setting up
 * Fork this repository on Github.
 * Test via the local web service.
