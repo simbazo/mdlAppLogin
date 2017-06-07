@@ -1,0 +1,1 @@
+{"virtualbox":{"/home/vagrant/code/mdlapplogin":{"type":null,"mount_options":[],"guestpath":"/home/vagrant/code/mdlapplogin","hostpath":"E:/Apache24/htdocs/homestead/laravel/mdl/mdlAppLogin","disabled":false,"__vagrantfile":true},"/vagrant":{"guestpath":"/vagrant","hostpath":"E:/Apache24/htdocs/homestead/laravel/mdl/mdlAppLogin","disabled":false,"__vagrantfile":true}}}

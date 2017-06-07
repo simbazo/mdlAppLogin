@@ -1,6 +1,6 @@
 <?php
 
-namespace App;
+namespace App\Models;
 
 use Illuminate\Notifications\Notifiable;
 use Illuminate\Auth\Authenticatable;
@@ -16,14 +16,13 @@ class User extends BaseModel implements AuthenticatableContract, CanResetPasswor
     protected $primaryKey = 'uuid';
     protected $dates = ['deleted_at'];
 
-
     /**
      * The attributes that are mass assignable.
      *
      * @var array
      */
     protected $fillable = [
-        'first_name', 'last_name','email', 'password',''
+        'first_name','last_name','gender','dob','phone','username', 'email', 'password','avatar','country_id','province','city','address','postal_code','pobox','company_uuid','active','user_created','user_updated','user_deleted'
     ];
 
     /**

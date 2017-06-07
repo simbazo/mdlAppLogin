@@ -12,13 +12,13 @@ keys:
 folders:
     -
         map: 'E:\apache24\htdocs\homestead\laravel\mdl\mdlAppLogin'
-        to: /home/vagrant/Code/mdlapplogin
+        to: /home/vagrant/code/mdlapplogin
         
 sites:
     -
         map: mdlAppLogin.app
-        to: /home/vagrant/Code/mdlapplogin/public
+        to: /home/vagrant/code/mdlapplogin/code/public
         
 databases:
-    - homestead
+    - midigitallife
 
