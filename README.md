@@ -1,2 +1,17 @@
 # mdlAppLogin
-This project manages login and registration views from iframes within mobile apps.
+
+This is a **Laravel** front-end project. It will display **Bootstrap 3** styled login and registration views. It will also return a **JWT** token and optionally a **UUID** key based on the following DB relationship: **User-Application-Release-Device**.
+
+Typically this authentication approach will be used in mobile apps where registration and authentication occurs within a cross-domain iframe.
+
+## Getting started with mdlAppLogin
+
+### Prerequisites:
+* **Linux**
+* **Mac OS**
+* **Windows**
+* **Apache 2.4** or **Nginx 1.9**
+
+### Setting up
+* Fork this repository on Github.
+* Test via the local web service.
