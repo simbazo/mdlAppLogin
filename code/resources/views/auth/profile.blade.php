@@ -6,11 +6,15 @@
         <div class="col-xs-12 col-sm-10 col-sm-offset-1 col-md-8 col-md-offset-2 col-lg-6 col-lg-offset-3">
             <form class="form-horizontal" role="form" method="POST" action="{{ route('register') }}">
                 {{ csrf_field() }}
-                <div class="alert alert-info alert-dismissible hidden-xs" role="alert">
-                    <button type="button" class="close" data-dismiss="alert" aria-label="Close">
-                        <span aria-hidden="true">&times;</span>
-                    </button>
-                    <strong>Tip:</strong> After registering, complete your profile at <strong><a href="http://www.midigitallife.com" target="_blank" class="alert-link">www.midigitallife.com</a></strong>. 
+                <div class="form-group">
+                    <div class="col-xs-12">
+                        <input id="first_name" name="first_name" type="text" placeholder="First Name" class="form-control input-md" required="">
+                    </div>
+                </div>
+                <div class="form-group">
+                    <div class="col-xs-12">
+                        <input id="last_name" name="last_name" type="text" placeholder="Surname" class="form-control input-md" required="">
+                    </div>
                 </div>
                 <div class="form-group">
                     <div class="col-xs-12">
