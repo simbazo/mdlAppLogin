@@ -18,7 +18,7 @@ class CreateDevicesTable extends Migration
             $table->string('manufacturer')->nullable();
             $table->string('model')->nullable();
             $table->string('platform')->nullable();
-            $table->string('vision')->nullable();
+            $table->string('version')->nullable();
             $table->string('serial')->nullable();
             $table->string('user_created',36)->nullable();
             $table->string('user_updated',36)->nullable();
@@ -34,8 +34,5 @@ class CreateDevicesTable extends Migration
      *
      * @return void
      */
-    public function down()
-    {
-        Schema::dropIfExists('devices');
-    }
+    
 }
