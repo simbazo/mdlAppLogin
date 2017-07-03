@@ -11,7 +11,7 @@ Typically, the Laravel views will be displayed within an iframe in a Cordova hyb
 ## Setup in a local environment
 Follow these steps to set up this project in a local L/X/W/AMP environment:
  - Fork the repository to the local file system.
- - Open **phpMyAdmin** on **localhost** and run the **sql_dump.sql** file to set up a mySQL database called **mdlLogin**.
+ - Open **phpMyAdmin** on **localhost**, create a new schema called **mdllogin** and then run the **sql_dump.sql** file.
  - Rename **.env.local** to **.env**
  - Change settings in **.env** to reflect your local environment.
  - Create a **vendor** directory in the project root and unzip the contents of **vendor.zip** into it. 
