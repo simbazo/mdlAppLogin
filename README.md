@@ -14,5 +14,6 @@ Follow these steps to set up this project in a local L/X/W/AMP environment:
  - Open **phpMyAdmin** on **localhost** and run the **sql_dump.sql** file to set up a mySQL database called **mdlLogin**.
  - Rename **.env.live** to **.env**
  - Change settings in **.env** to reflect your local environment.
+ - Create a **vendor** directory in the project root and unzip the contents of **vendor.zip** into it. 
  
 
