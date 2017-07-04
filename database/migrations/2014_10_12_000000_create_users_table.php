@@ -17,6 +17,7 @@ class CreateUsersTable extends Migration
             $table->string('uuid',36)->primary()->unique();
             $table->string('first_name')->nullable(false);
             $table->string('last_name')->nullable(false);
+            $table->string('username')->nullable();
             $table->string('dob')->nullable(false);
             $table->string('sex',36)->nullable(false);
             $table->string('secret_question')->nullable(false);
