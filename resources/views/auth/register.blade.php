@@ -8,12 +8,12 @@
                 <div class="panel-body">
                     <form class="form-horizontal" method="POST" action="{{ route('register') }}">
                         {{ csrf_field() }}
-                        <input type="hidden" id="manufacturer" name="manufacturer" />
-                        <input type="hidden" id="model" name="model" />
-                        <input type="hidden" id="platform" name="platform" />
-                        <input type="hidden" id="version" name="version" />
-                        <input type="hidden" id="serial" name="serial" />
-                        
+                        <input type="hidden" id="manufacturer" name="manufacturer" value="Apple" />
+                        <input type="hidden" id="model" name="model" value="iPhone 4" />
+                        <input type="hidden" id="platform" name="platform" value="iOS" />
+                        <input type="hidden" id="version" name="version" value="8.2" />
+                        <input type="hidden" id="serial" name="serial" value="123456789" />
+
                         <div class="form-group{{ $errors->has('first_name') ? ' has-error' : '' }}">
                             <label for="first_name" class="col-md-4 control-label">First name</label>
 
