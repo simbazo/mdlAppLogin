@@ -3,6 +3,7 @@
 namespace App\Http\Controllers\Auth;
 
 use App\Models\User;
+use App\Models\Device;
 use App\Http\Controllers\Controller;
 use Illuminate\Support\Facades\Validator;
 use Illuminate\Foundation\Auth\RegistersUsers;
@@ -27,7 +28,7 @@ class RegisterController extends Controller
      *
      * @var string
      */
-    protected $redirectTo = '/home';
+    protected $redirectTo = null;//'/auth/confirm/'.user->first_name.' '.user->last_name.'/'.user->email;
 
     /**
      * Create a new controller instance.
@@ -68,17 +69,36 @@ class RegisterController extends Controller
      */
     protected function create(array $data)
     {
-        return User::create([
-            'username' => $data['first_name'].$data['last_name'],
-            'first_name' => $data['first_name'],
-            'last_name' => $data['last_name'],
-            'dob' => $data['dob'],
-            'sex' => $data['sex'],
-            'secret_question' => $data['secret_question'],
-            'secret_answer' => $data['secret_answer'],
-            'email' => $data['email'],
-            'mobile' => $data['mobile'],
-            'password' => bcrypt($data['password']),
-        ]);
+        return 
+            User::create([
+                'username' => $data['first_name'].$data['last_name'],
+                'first_name' => $data['first_name'],
+                'last_name' => $data['last_name'],
+                'dob' => $data['dob'],
+                'sex' => $data['sex'],
+                'secret_question' => $data['secret_question'],
+                'secret_answer' => $data['secret_answer'],
+                'email' => $data['email'],
+                'mobile' => $data['mobile'],
+                'password' => bcrypt($data['password']),
+            ]);
+    }
+
+    protected function createDevice(array $data, User $user)
+    {
+        return
+            Device::create([
+                'manufacturer' => $data['manufacturer'],
+                'model' => $data['model'],
+                'platform' => $data['platform'],
+                'version' => $data['version'],
+                'serial' => $data['serial'],
+                'user_created' => $user->uuid
+            ]);
+    }
+
+    protected function attachDevice(User $user, Device $device)
+    {
+        $user->devices()->attach($device->uuid);
     }
 }

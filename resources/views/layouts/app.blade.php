@@ -15,8 +15,11 @@
 </head>
 <body>
     <div class="container" id="app">
-        <h3>{{ config('app.name', 'Laravel') }}</h3>
-        @yield('content')
+        <div class="row">
+            <div class="col-md-8 col-md-offset-2">
+                <h3>{{ config('app.name', 'Laravel') }}</h3>
+                @yield('content')
+        </div>
     </div>
 
     <!-- Scripts -->

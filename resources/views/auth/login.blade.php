@@ -63,7 +63,7 @@
                             <div class="col-md-8 col-md-offset-4">
                                 <div style="border-top: 1px solid#888; padding-top:15px; font-size:85%" >
                                     Don't have an account! 
-                                    <a href="{{ route('register') }}">
+                                    <a href="{{ route('personal') }}">
                                         Register Here
                                     </a>
                                 </div>
