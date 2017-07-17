@@ -63,14 +63,20 @@
 
                         <div class="form-group{{ $errors->has('sex') ? ' has-error' : '' }}">
                             <label for="sex" class="control-label">Sex</label>
-                            <div>
+                            <select class="form-control" id="sex" name="sex">
+                                @foreach($sexes as $sex)
+                                    <option value="{{ $sex->uuid }}">{{ $sex->sex }}</option>
+                                @endforeach
+                            </select>
+
+                            <!--<div>
                                 <label class="radio-inline">
                                     <input type="radio" name="sex" id="sexFemale" value="F"> Female
                                 </label>
                                 <label class="radio-inline">
                                     <input type="radio" name="sex" id="sexMale" value="M"> Male
                                 </label>
-                            </div>
+                            </div>-->
                             @if ($errors->has('sex'))
                                 <span class="help-block">
                                     <strong>{{ $errors->first('sex') }}</strong>
