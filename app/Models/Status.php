@@ -14,8 +14,8 @@ class Status extends BaseModel
     
     protected  $fillable = ['status', 'active', 'user_created', 'user_updated', 'user_deleted'];
 
-    public function users()
-    {
-        return $this->hasMany('App\Models\User');
-    } 
+    //public function users()
+    //{
+        //return $this->hasMany('App\Models\User');
+    //} 
 }

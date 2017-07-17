@@ -8,17 +8,19 @@ use Illuminate\Foundation\Auth\User as Authenticatable;
 class User extends Authenticatable
 {
     use Notifiable;
+
     protected $primaryKey = 'uuid';
+    protected $dates = ['deleted_at'];
 
     /**
-     * The attributes that are mass assignable.
+     * The user attributes that are mass assignable.
      *
      * @var array
      */
     protected $fillable = [
-        'username','first_name', 'last_name', 'email', 'mobile', 'password',
-        'secret_question', 'secret_answer', 'description', 'avatar',
-        'sex', 'dob', 'user_created','user_updated','user_deleted'
+        'username', 'first_name', 'last_name', 'dob', 'sex', 'email', 'mobile', 'password',
+        'secret_question', 'secret_answer', 'status_uuid', 'description', 'avatar', 
+        'user_created','user_updated','user_deleted'
     ];
     
     /**
@@ -30,13 +32,20 @@ class User extends Authenticatable
         'password', 'remember_token',
     ];
 
-    public function status()
-    {
-        return $this->belongsTo('App\Models\Status');
+    /**
+     * Get the sex associated with the user
+    */
+    public function sex(){
+        return $this->belongsTo(\App\Models\Sex::class, 'sex_uuid', 'uuid');
     }
 
-    public function devices()
-    {
-        return $this->belongsToMany('App\Models\Device');
-    }           
+    //public function status()
+    //{
+        //return $this->belongsTo('App\Models\Status');
+    //}
+
+    //public function devices()
+    //{
+        //return $this->belongsToMany('App\Models\Device');
+    //}           
 }

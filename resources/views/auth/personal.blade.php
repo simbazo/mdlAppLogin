@@ -2,9 +2,9 @@
 
 @section('content')
             <div class="panel panel-default">
-                <div class="panel-heading">Register: <small>Your Details</small></div>
+                <div class="panel-heading"><strong>Register:</strong> <small>Your Details</small></div>
                 <div class="panel-body">
-                    <form  method="POST" action="{{ route('security') }}">
+                    <form  method="POST" action="{{ route('security') }}" role="form">
                         {{ csrf_field() }}
 
                         <!-- Store Application token -->
@@ -41,14 +41,25 @@
 
                         <div class="form-group{{ $errors->has('dob') ? ' has-error' : '' }}">
                             <label for="dob" class="control-label">Birth date</label>
-                            <input id="dob" type="text" class="form-control" name="dob" 
-                                value="{{ old('dob') }}" required autofocus>
-                            @if ($errors->has('dob'))
-                                <span class="help-block">
-                                    <strong>{{ $errors->first('dob') }}</strong>
-                                </span>
-                            @endif
+                            <div class="input-group">
+                                <input id="dob" type="text" class="form-control" name="dob" value="{{ old('dob') }}" placeholder="DD/MM/YYYY" required autofocus aria-describedby="dob-datepicker">
+                                <span class="input-group-addon fa fa-calendar" id="dob-datepicker" aria-hidden="true"></span>
+                                @if ($errors->has('dob'))
+                                    <span class="help-block">
+                                        <strong>{{ $errors->first('dob') }}</strong>
+                                    </span>
+                                @endif
+                            </div>                            
                         </div>
+
+                        <!--<div class="form-group{{ $errors->has('sex') ? ' has-error' : '' }}">
+                            <label for="sex" class="control-label">Sex</label>
+                            <br />
+                            <div class="btn-group" role="group" aria-label="...">
+                                <button type="button" class="btn btn-primary" value="F">Female</button>         
+                                <button type="button" class="btn btn-primary" value="M">&nbsp;Male&nbsp;</button>
+                            </div>
+                        </div>-->                  
 
                         <div class="form-group{{ $errors->has('sex') ? ' has-error' : '' }}">
                             <label for="sex" class="control-label">Sex</label>

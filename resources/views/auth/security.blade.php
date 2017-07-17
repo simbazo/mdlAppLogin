@@ -4,7 +4,7 @@
             <div class="panel panel-default">
                 <div class="panel-heading">Register: <small>Your Security</small></div>
                 <div class="panel-body">
-                    <form  method="POST" action="{{ route('register') }}">
+                    <form  method="POST" action="{{ route('register') }}" role="form">
                         {{ csrf_field() }}
 
                         

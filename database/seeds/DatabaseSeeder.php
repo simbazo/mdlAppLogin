@@ -11,6 +11,24 @@ class DatabaseSeeder extends Seeder
      */
     public function run()
     {
-        // $this->call(UsersTableSeeder::class);
+        $this->call('SexesTableSeeder');
+		$this->command->info('Sexes table seeded with Female and Male');
+
+    }
+}
+
+class SexesTableSeeder extends Seeder
+{
+    /**
+     * Run the sexes table seeds.
+     *
+     * @return void
+     */
+    public function run()
+    {
+        DB::table('sexes')->delete();
+
+        App\Models\Sex::create(['sex' => 'Female']);
+        App\Models\Sex::create(['sex' => 'Male']);
     }
 }
