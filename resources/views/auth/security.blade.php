@@ -60,23 +60,23 @@
                                 name="password_confirmation" required>
                         </div>                        
 
-                        <div class="form-group{{ $errors->has('secret_question') ? ' has-error' : '' }}">
-                            <label for="secret_question" class="control-label">Security question</label>
-                            <input id="secret_question" type="text" class="form-control" name="secret_question"     value="{{ old('secret_question') }}" required autofocus>
-                            @if ($errors->has('secret_question'))
+                        <div class="form-group{{ $errors->has('security_question') ? ' has-error' : '' }}">
+                            <label for="security_question" class="control-label">Security question</label>
+                            <input id="security_question" type="text" class="form-control" name="security_question"     value="{{ old('security_question') }}" required autofocus>
+                            @if ($errors->has('security_question'))
                                 <span class="help-block">
-                                    <strong>{{ $errors->first('secret_question') }}</strong>
+                                    <strong>{{ $errors->first('security_question') }}</strong>
                                 </span>
                             @endif
                         </div>
 
-                        <div class="form-group{{ $errors->has('secret_answer') ? ' has-error' : '' }}">
-                            <label for="secret_answer" class="control-label">Security answer</label>
-                            <input id="secret_answer" type="text" class="form-control" name="secret_answer" 
-                                value="{{ old('secret_answer') }}" required autofocus>
-                            @if ($errors->has('secret_answer'))
+                        <div class="form-group{{ $errors->has('security_answer') ? ' has-error' : '' }}">
+                            <label for="security_answer" class="control-label">Security answer</label>
+                            <input id="security_answer" type="text" class="form-control" name="security_answer" 
+                                value="{{ old('security_answer') }}" required autofocus>
+                            @if ($errors->has('security_answer'))
                                 <span class="help-block">
-                                    <strong>{{ $errors->first('secret_answer') }}</strong>
+                                    <strong>{{ $errors->first('security_answer') }}</strong>
                                 </span>
                             @endif
                         </div>
