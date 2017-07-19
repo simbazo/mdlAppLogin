@@ -3,6 +3,7 @@
 namespace App\Http\Controllers\Auth;
 
 use App\Models\User;
+use App\Models\UserStatus;
 use App\Models\Device;
 use App\Http\Controllers\Controller;
 use Illuminate\Support\Facades\Validator;
@@ -67,7 +68,7 @@ class RegisterController extends Controller
      * @param  array  $data
      * @return User
      */
-    protected function create(array $data)
+    protected function create(array $data, array $status)
     {
         return 
             User::create([
@@ -75,7 +76,8 @@ class RegisterController extends Controller
                 'first_name' => $data['first_name'],
                 'last_name' => $data['last_name'],
                 'dob' => $data['dob'],
-                'sex' => $data['sex'],
+                'sex_uuid' => $data['sex'],
+                'status_uuid' => $user['uuid'],
                 'secret_question' => $data['secret_question'],
                 'secret_answer' => bcrypt($data['secret_answer']),
                 'email' => $data['email'],

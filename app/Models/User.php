@@ -18,8 +18,8 @@ class User extends Authenticatable
      * @var array
      */
     protected $fillable = [
-        'username', 'first_name', 'last_name', 'dob', 'sex', 'email', 'mobile', 'password',
-        'secret_question', 'secret_answer', 'status_uuid', 'description', 'avatar', 
+        'username', 'first_name', 'last_name', 'dob', 'sex_uuid', 'status_uuid', 'email', 
+        'mobile', 'password', 'secret_question', 'secret_answer', , 'description', 'avatar', 
         'user_created','user_updated','user_deleted'
     ];
     
@@ -39,10 +39,9 @@ class User extends Authenticatable
         return $this->belongsTo(\App\Models\Sex::class, 'sex_uuid', 'uuid');
     }
 
-    //public function status()
-    //{
-        //return $this->belongsTo('App\Models\Status');
-    //}
+     public function status(){
+        return $this->belongsTo(\App\Models\UserStatus::class, 'status_uuid', 'uuid');
+    }
 
     //public function devices()
     //{
