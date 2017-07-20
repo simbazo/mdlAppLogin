@@ -14,8 +14,8 @@ class Release extends Model
     
     protected  $fillable = ['short_name', 'long_name', 'user_created', 'user_updated', 'user_deleted'];
 
-    /*public function releases()
+    public function publication()
     {
-        return $this->belongsToMany('App\Models\Applications\Release');
-    }*/
+		return $this->belongsTo('App\Models\Applications\Publication');    	
+    }
 }

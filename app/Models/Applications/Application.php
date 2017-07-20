@@ -16,6 +16,6 @@ class Application extends Model
 
     public function publications()
     {
-        return $this->belongsToMany('App\Models\Applications\Publication');
+        return $this->hasMany('App\Models\Applications\Publication');
     } 
 }
