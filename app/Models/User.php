@@ -43,8 +43,8 @@ class User extends Authenticatable
         return $this->belongsTo(\App\Models\UserStatus::class, 'status_uuid', 'uuid');
     }
 
-    //public function devices()
-    //{
-        //return $this->belongsToMany('App\Models\Device');
-    //}           
+    public function devices()
+    {
+        return $this->belongsToMany('App\Models\Device');
+    }           
 }

@@ -63,12 +63,13 @@ class RegisterController extends Controller
     }
 
     /**
-     * Create a new user instance after a valid registration.
+     * Create a new user.
      *
      * @param  array  $data
+     * @param integer $statusID
      * @return User
      */
-    protected function create(array $data, array $status)
+    protected function create(array $data, $statusID)
     {
         return 
             User::create([
@@ -77,7 +78,7 @@ class RegisterController extends Controller
                 'last_name' => $data['last_name'],
                 'dob' => $data['dob'],
                 'sex_uuid' => $data['sex'],
-                'status_uuid' => $status['uuid'],
+                'status_uuid' => $statusID,
                 'security_question' => $data['security_question'],
                 'security_answer' => bcrypt($data['security_answer']),
                 'email' => $data['email'],
@@ -90,9 +91,10 @@ class RegisterController extends Controller
      * Create a new device instance for the user after a valid registration.
      *
      * @param  array  $data
+     * @param integer $userID
      * @return Device
      */
-    protected function createDevice(array $data, User $user)
+    protected function createDevice(array $data, $userID)
     {
         return
             Device::create([
@@ -101,18 +103,19 @@ class RegisterController extends Controller
                 'platform' => $data['platform'],
                 'version' => $data['version'],
                 'serial' => $data['serial'],
-                'user_created' => '7'//$user->get('uuid')
+                'user_created' => $userID
             ]);
     }
 
     /**
      * Attach the device to the registered user.
      *
-     * @param  array  $data
-     * @return Device
+     * @param  User  $user
+     * @return integer $deviceID
+     * @return \Illuminate\Http\Response
      */
-    protected function attachDevice(User $user, Device $device)
+    protected function attachDevice(User $user, $deviceID)
     {
-        $user->devices()->attach($device->uuid);
+        $user->devices()->attach($deviceID);
     }
 }
