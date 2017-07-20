@@ -46,5 +46,10 @@ class User extends Authenticatable
     public function devices()
     {
         return $this->belongsToMany('App\Models\Device');
-    }           
+    }   
+
+    public function attachDevice($deviceID)
+    {
+       $this->devices()->attach($deviceID);
+    }
 }
