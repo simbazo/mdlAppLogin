@@ -116,6 +116,7 @@ class RegisterController extends Controller
      */
     protected function attachDevice(User $user, $deviceID)
     {
-        $user->devices()->attach($deviceID);
+        return
+            $user->devices()->attach($deviceID);
     }
 }

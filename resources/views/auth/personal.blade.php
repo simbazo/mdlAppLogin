@@ -42,7 +42,7 @@
                         <div class="form-group{{ $errors->has('dob') ? ' has-error' : '' }}">
                             <label for="dob" class="control-label">Birth date</label>
                             <div class="input-group">
-                                <input id="dob" type="text" class="form-control" name="dob" value="{{ old('dob') }}" placeholder="DD/MM/YYYY" required autofocus aria-describedby="dob-datepicker">
+                                <input id="dob" type="text" class="form-control" name="dob" value="{{ old('dob') }}" placeholder="YYYY/MM/DD" required autofocus aria-describedby="dob-datepicker">
                                 <span class="input-group-addon fa fa-calendar" id="dob-datepicker" aria-hidden="true"></span>
                                 @if ($errors->has('dob'))
                                     <span class="help-block">

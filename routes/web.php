@@ -19,6 +19,11 @@ Auth::routes();
 
 Route::get('/home', 'HomeController@index')->name('home');
 
-Auth::routes();
-
 Route::get('/home', 'HomeController@index')->name('home');
+
+/* Routes to validate settings via the internet */
+Route::group(['prefix'=>'confirm', 'namespace'=>'Shared'],function(){
+	Route::get('email/{address}','ConfirmController@confirmShowEmail')->name('confirm.show.email');
+	Route::get('mobile/{number}','ConfirmController@confirmShowMobile')->name('confirm.show.mobile');
+});
+

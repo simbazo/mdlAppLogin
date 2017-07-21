@@ -25,7 +25,18 @@
         </div>
     </div>
 
+    <div id="ajax-modal" class="modal" tabindex="-1" role="dialog" data-backdrop="static"></div>
+    @stack('modal')
+
     <!-- Scripts -->
+    <script src="{{ asset('js/vendor/jquery/jquery.js') }}"></script>
+    <script src="{{ asset('js/vendor/bootstrap/bootstrap.js') }}"></script>
+    <script src="{{ asset('js/vendor/bootstrap/bootstrap-dialog.js') }}"></script>
+    <script src="{{ asset('js/3rdparty/pikaday/moment.js') }}"></script>
+    <script src="{{ asset('js/3rdparty/pikaday/pikaday.js') }}"></script>
+    <script src="{{ asset('js/3rdparty/pikaday/pikaday.jquery.js') }}"></script>
+    <script src="{{ asset('js/3rdparty/date_timepicker/bootstrap-datetimepicker.min.js') }}"></script>
+   
    
 </body>
 </html>

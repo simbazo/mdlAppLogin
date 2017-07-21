@@ -4,7 +4,7 @@
     <div class="panel panel-default">
         <div class="panel-heading"><strong>Register:</strong> <small>Confirmation of Contact Details</small></div>
         <div class="panel-body">
-            <form  method="POST" action="{{ route('security') }}" role="form">
+            <form  method="POST" action="" role="form">
                 {{ csrf_field() }}
 
                 <div class="alert alert-success" role="alert">
