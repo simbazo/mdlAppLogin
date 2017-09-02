@@ -25,7 +25,6 @@ class CreateDevicesTable extends Migration
             $table->integer('user_deleted')->nullable();
             $table->softDeletes();            
             $table->timestamps();
-            $table->rememberToken();
         });
     }
 
@@ -34,5 +33,9 @@ class CreateDevicesTable extends Migration
      *
      * @return void
      */
+    public function down()
+    {
+        Schema::dropIfExists('devices');
+    }
     
 }

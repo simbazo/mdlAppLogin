@@ -85,8 +85,7 @@ class ConfirmController extends Controller
 
     public function confirmShowEmail($address) {
 
-        //echo '***** '.$address.' *****';
-        return view('auth.partials.email'); //, compact('address'));
+        //return view('auth.partials.email');
     }
 
     public function confirmShowMobile($number) {

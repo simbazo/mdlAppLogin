@@ -17,6 +17,7 @@ class CreateApplicationTable extends Migration
             $table->increments('uuid');
             $table->string('short_name')->unique()->nullable(false);
             $table->string('long_name')->nullable();
+            $table->integer('max_devices')->unsigned()->default(2);
             $table->integer('user_created')->unsigned()->nullable();
             $table->integer('user_updated')->unsigned()->nullable();
             $table->integer('user_deleted')->unsigned()->nullable();

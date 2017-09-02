@@ -2,12 +2,11 @@
 
 namespace App\Http\Controllers\Auth;
 
-use App\Models\User;
-use App\Models\UserStatus;
-use App\Models\Device;
+use App\Models\Subscriptions\Device;
 use App\Http\Controllers\Controller;
 use Illuminate\Support\Facades\Validator;
 use Illuminate\Foundation\Auth\RegistersUsers;
+use App\Models\User;
 
 class RegisterController extends Controller
 {
@@ -29,7 +28,7 @@ class RegisterController extends Controller
      *
      * @var string
      */
-    protected $redirectTo = '/home';
+    protected $redirectTo = 'register.complete';
 
     /**
      * Create a new Register controller instance that only guests can access.
@@ -50,15 +49,16 @@ class RegisterController extends Controller
     protected function validator(array $data)
     {
         return Validator::make($data, [
-            'first_name' => 'required|string|max:255',
-            'last_name' => 'required|string|max:255',   
-            'dob' => 'required|date',    
-            'sex' => 'required|integer',
-            'security_question' => 'required|string|max:255',
-            'security_answer' => 'required|string|max:255', 
-            'email' => 'required|string|email|max:255|unique:users',
-            'mobile' => 'required|string|max:255|unique:users',
-            'password' => 'required|string|min:6|confirmed',
+            'first_name' => 'required|max:255',
+            'last_name' => 'required|max:55',   
+            'dob' => 'required',    
+            'sex' => 'required',
+            'security_question' => 'required|max:255',
+            'security_answer' => 'required|max:255', 
+            'email' => 'required|email|max:255|unique:users',
+            'mobile' => 'required|max:255|unique:users',
+            'password' => 'required|min:6|confirmed',
+            'emailVerified' => 'required'
         ]);
     }
 
@@ -85,6 +85,23 @@ class RegisterController extends Controller
                 'mobile' => $data['mobile'],
                 'password' => bcrypt($data['password']),
             ]);
+    }
+
+     /**
+     *Update the User status.
+     *
+     * @param integer $statusID
+     * @return User
+     */
+    protected function updateStatus(User $user, $statusID)
+    {
+        $data = [
+            'status_uuid' => $statusID
+        ];
+
+        $user->update($data);
+
+        return $user;
     }
 
     /**

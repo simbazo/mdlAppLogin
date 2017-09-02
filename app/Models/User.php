@@ -32,21 +32,27 @@ class User extends Authenticatable
         'password', 'remember_token',
     ];
 
-    /**
-     * Get the sex associated with the user
-    */
     public function sex(){
         return $this->belongsTo(\App\Models\Sex::class, 'sex_uuid', 'uuid');
     }
 
-     public function status(){
+    /**
+        * The status of the user
+    **/
+    public function status(){
         return $this->belongsTo(\App\Models\UserStatus::class, 'status_uuid', 'uuid');
     }
 
-    public function devices()
-    {
-        return $this->belongsToMany('App\Models\Device');
-    }   
+    /**
+        * The applications that belong to the user
+    **/
+    public function applications() {
+        return $this->belongsToMany('App\Models\Applications\Application', 'application_user', 'user_uuid', 'application_uuid');
+    }
+
+    public function devices() {
+        return $this->belongsToMany('App\Models\Subscriptions\Device', 'device_user', 'user_uuid', 'device_uuid');
+    }
 
     public function attachDevice($deviceID)
     {

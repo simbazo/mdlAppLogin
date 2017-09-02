@@ -20,7 +20,7 @@ class ChangetableStructureTusers extends Migration
             $table->string('mobile')->unique()->nullable(false)->change();
             $table->renameColumn('secret_question', 'security_question');
             $table->renameColumn('secret_answer', 'security_answer'); 
-            $table->integer('status_uuid')->nullable(false);//ADDED THIS AS A LOOKUP TO A tStaus TABLE
+            $table->integer('status_uuid')->unsigned()->nullable(false);//ADDED THIS AS A LOOKUP TO A tStaus TABLE
         });
     }
 
